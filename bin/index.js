@@ -13,7 +13,7 @@ var rd = readline.createInterface({
 
 // clear file
 fs.writeFile(targetPath, "", function () {
-  console.log("clear done");
+  // console.log("clear done");
 });
 
 // put Opening Array
@@ -29,12 +29,13 @@ rd.on("line", function (line) {
 // finish reading
 rd.on("close", function (line) {
   putClosingArray();
+  console.log("all is ok");
 });
 
 function putLineInsideFile(newLine) {
   fs.appendFile(targetPath, newLine, function (err) {
     if (err) return console.log(err);
-    console.log("Appended!");
+    // console.log("Appended!");
   });
 }
 
@@ -42,7 +43,7 @@ function putOpeningArray() {
   const newLine = "export const iconsList: readonly string[] = [\n";
   fs.appendFile(targetPath, newLine, function (err) {
     if (err) return console.log(err);
-    console.log("Appended!");
+    // console.log("Appended!");
   });
 }
 
@@ -51,6 +52,6 @@ function putClosingArray() {
   export type iconsType = typeof iconsList[number]`;
   fs.appendFile(targetPath, newLine, function (err) {
     if (err) return console.log(err);
-    console.log("Appended!");
+    // console.log("Appended!");
   });
 }
